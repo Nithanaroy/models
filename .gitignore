@@ -96,3 +96,13 @@ ENV/
 
 # For mac
 .DS_Store
+
+# Nitin's
+/images/
+checkpoints/
+logs/
+tf_record/
+data/
+/annotations/
+/fine_tuned_model/
+research/object_detection/protos/*.py
