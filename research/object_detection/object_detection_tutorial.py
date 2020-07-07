@@ -38,7 +38,16 @@ from matplotlib import pyplot as plt
 from PIL import Image
 from IPython.display import display
 
-tf.enable_eager_execution()
+# tf.enable_eager_execution()
+
+tf.__version__
+
+
+import sys
+
+models_research_dir = "models/research"
+if models_research_dir not in sys.path:
+    sys.path.append(models_research_dir)
 
 
 from object_detection.utils import ops as utils_ops
@@ -55,7 +64,8 @@ tf.gfile = tf.io.gfile
 
 def load_model_local(model_path):
     model_dir = pathlib.Path(model_path)/"saved_model"
-    model = tf.saved_model.load_v2(str(model_dir))
+#     model = tf.saved_model.load_v2(str(model_dir))
+    model = tf.saved_model.load(str(model_dir))
     model = model.signatures['serving_default']
     return model
 
